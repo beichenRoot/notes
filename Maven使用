@@ -1,0 +1,59 @@
+1. Maven安装
+1.1 首先安装maven
+1.2 maven修改远程中央仓库地址为阿里远程仓库:
+在maven安装目录下找到conf，修改setting.xml
+<profiles>
+  <profile>
+  <id>dev</id> 
+  <!-- repositories and pluginRepositories here--> 
+  <repositories>
+    <repository>
+      <id>nexus-aliyun</id>
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  </profile>
+</profiles>
+<activeProfiles>
+  <activeProfile>dev</activeProfile>
+</activeProfiles>
+
+maven修改本地仓库地址：
+还是在这个setting.xml文件,搜索localRepository，添加本地仓库地址:
+<localRepository>D:\resource\maven-repository\repository</localRepository>
+1.3 配置eclipse
+Window->Preferences->Maven->User settings->Global Settings(将上面修改的setting.xml文件路径添加至此处)
+Window->Preferences->Maven->Installations->Add(将maven的安装目录路径添加至此处并勾选应用)
+
+1.4 将maven的bin目录路径添加至系统环境变量，以便在命令行使用maven
+
+2. maven使用
+2.1 编译mvn工程，使用命令行进入待编译工程pom.xml的同级目录：
+mvn package -Dmaven.skip.test=true
+//-Dmaven.skip.test=true 跳过测试
+
+2.2 Maven install
+maven创建的pom工程中约定了子项目的版本，在此父工程下运行install命令可安装所有子项目；
+
+2.3 Maven添加依赖
+若maven中无法依赖指定项目可先install该项目，然后在window中打开maven Repositories视图，update index
+
+2.4 向maven本地仓库添加jar包
+a> 在Eclipse项目中点击右键，选择import;
+  选中Maven下的Install or deply an artifact to a Maven reposeitory，然后点击Next按钮
+  填写group id、Artifact Id、Version，要和jar本身对应，pom.xml也需要匹配,最后点击Finish按钮完成配置
+b> 命令行：mvn install:install-file jar包全路径  -DgroupId=xxx -DartifactID=xxx -Dversion=xxx -Dpackaging=jar
+
+
+
+
+
+
+

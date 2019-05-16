@@ -1,0 +1,5 @@
+Google浏览器调试相关：
+1. F12打开控制台，在Sources中查看加载的前端源码是否为最新,NetWork中查看请求是否正确
+2. Ctr+Shirft+R无法清除js缓存，具体清除js缓存方法如下：
+  https://www.cnblogs.com/tuding/p/7335887.html
+3. 确认逻辑无问题后，首先排查前端缓存导致的问题。

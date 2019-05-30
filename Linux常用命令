@@ -1,0 +1,87 @@
+1. VMWARE虚拟机查看ip地址及设置静态ip
+* ifconfig    查看ip地址
+* vim  /etc/sysconfig/network-scripts/ifcfg-eth0   查看系统网络设置
+      DEVICE="eth0"
+      BOOTPROTO="static"                          静态网络地址
+      HWADDR="00:0C:29:F4:7E:C9"
+      IPV6INIT="yes"
+      NM_CONTROLLED="yes"
+      ONBOOT="yes"
+      TYPE="Ethernet"
+      UUID="2a76c2f8-cd47-44af-936d-11559b3a498d"
+      IPADDR="192.168.25.130"
+      NETMASK="255.255.255.0"
+*  service network restart                       重新启动网络配置
+
+2. 修改root账户密码
+* passwd root
+
+3. 查看当前目录的绝对路径
+* pwd
+
+4. 解压tar.gz文件
+* tar -zxvf filename.tar.gz -C desfilepath      将当前目录的filename.tar.gz解压到desfilepath目录下
+* 压缩
+  tar –cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg
+  tar –czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz
+  tar –cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2
+  tar –cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z
+  rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for Linux
+  zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux
+
+  解压
+  tar –xvf file.tar //解压 tar包
+  tar -xzvf file.tar.gz //解压tar.gz
+  tar -xjvf file.tar.bz2   //解压 tar.bz2
+  tar –xZvf file.tar.Z   //解压tar.Z
+  unrar e file.rar //解压rar
+  unzip file.zip //解压zip
+  
+5. 复制文件
+* cp a.txt DIR/b.txt  复制文件
+* mv a.txt DIR/b.txt  剪切文件
+* cp -r fold1 fold2   复制文件夹
+
+6. 新建简单配置文件
+* echo 1 > myid     将内容1写入文件myid,文件不存在时自动创建
+* cat file          查询文件内容
+
+7. 删除文件|文件夹
+* rm -rf path
+
+8. vi常用命令
+* ESC   返回命令行
+* : set number    显示行号
+* : / keyword     搜索关键字 n向下查找 N向上查找
+* 光标模式下G      跳至最后一行
+
+9. 设置目录访问权限
+* chmod -R 777 folderpath  设置为最高读写权限
+
+10. 启动命令
+* ./xxx.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+问题：redis集群配置安装的过程常见问题![ERR] Sorry, can't connect to node
+排查方式：
+1. 查看后台服务是否正常
+  grep nux|grep redis
+  
+2. 使用客户端工具连接redis，查看连接是否正常
+* ./redis-cli -p 7001   //连接正常
+* set name beichen   
+情况1：服务无响应
+原因：服务启动时使用ctr+z关闭启动进程导致服务不可用
+
+情况2:(error) CLUSTERDOWN The cluster is down
+原因：配置文件开启了集群服务，但集群未成功启动。
+
+3. 若无法连接，请排查：
+* ip & port 配置正确
+* ip 访问限制已关闭   
+  # bind 127.0.0.1  注释此行表示无访问限制
+* 密码访问权限是否正确，高版本redis集群可配置密码
+  find / -name client.rb
+    DEFAULTS = {
+          :url => lambda { ENV["REDIS_URL"] },
+          :scheme => "redis",
+          :host => "127.0.0.1",
+          :port => 6379,
+          :path => nil,
+          :timeout => 5.0,
+          :password => "xxxxxx",
+          :db => 0,
+          :driver => nil,
+          :id => nil,
+          :tcp_keepalive => 0,
+          :reconnect_attempts => 1,
+          :inherit_socket => false
+        }
+ 
+4. 修改redis为后台启动
+* redis.conf -->  daemonize yes
+
+
+
+

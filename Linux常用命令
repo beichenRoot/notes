@@ -73,3 +73,7 @@
 12.查找文件
 * find / -name xxx      //查找根目录下所有名为xxx的文件
 
+13.查看文件内容
+* tail -F filename      //默认显示最后10行
+* cat filename          //查看文件内容
+

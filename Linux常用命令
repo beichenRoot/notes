@@ -13,6 +13,10 @@
       NETMASK="255.255.255.0"
 *  service network restart                       重新启动网络配置
 
+静态ip变化后首先检查网络设置，再重启网络看是否恢复
+* 解决 Error:No suitable device found: no device found for connection "System eth0"方法如下：
+      https://blog.csdn.net/seven_zhao/article/details/43429571
+
 2. 修改root账户密码
 * passwd root
 
@@ -48,6 +52,7 @@
 
 7. 删除文件|文件夹
 * rm -rf path
+* mkdir 创建文件夹
 
 8. vi常用命令
 * ESC   返回命令行
@@ -61,27 +66,9 @@
 10. 启动命令
 * ./xxx.sh
 
+11. 查询进程命令
+* ps -ef | grep redis  //redis为搜索关键词
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+12.查找文件
+* find / -name xxx      //查找根目录下所有名为xxx的文件
 

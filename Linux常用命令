@@ -68,6 +68,7 @@
 
 11. 查询进程命令
 * ps -ef | grep redis  //redis为搜索关键词
+* ps nux | grep redis  //redis为搜索关键词
 
 12.查找文件
 * find / -name xxx      //查找根目录下所有名为xxx的文件
